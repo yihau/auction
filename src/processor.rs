@@ -1,7 +1,4 @@
-use crate::{
-    instruction::AuctionInstruction,
-    state::Auction,
-};
+use crate::{instruction::AuctionInstruction, state::Auction};
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,
@@ -231,10 +228,7 @@ impl Processor {
                 msg!("Instruction: CreateAuction");
                 Self::process_create_auction(*program_id, accounts, start_price)
             }
-            AuctionInstruction::Bidding {
-                price,
-                decimals,
-            } => {
+            AuctionInstruction::Bidding { price, decimals } => {
                 msg!("Instruction: Bidding");
                 Self::process_bidding(*program_id, accounts, price, decimals)
             }
